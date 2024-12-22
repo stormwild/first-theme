@@ -262,3 +262,50 @@ a:hover {
   border-top: 1px solid #eee;
   text-align: center;
 }
+
+/* Pagination */
+.navigation.pagination {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.nav-links {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.page-numbers {
+  padding: 0.5rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #0073aa;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.page-numbers:hover,
+.page-numbers:focus {
+  background-color: #f8f9fa;
+  border-color: #0073aa;
+  color: #00a0d2;
+  text-decoration: none;
+  outline: none;
+}
+
+.page-numbers.current {
+  background-color: #0073aa;
+  border-color: #0073aa;
+  color: #fff;
+}
+
+.page-numbers.dots {
+  border: none;
+  padding: 0.5rem;
+}
+
+/* Focus styles for better accessibility */
+.page-numbers:focus-visible {
+  outline: 2px solid #0073aa;
+  outline-offset: 2px;
+}
