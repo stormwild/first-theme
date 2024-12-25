@@ -29,9 +29,9 @@
         </div>
 
         <nav id="site-navigation" class="main-navigation" role="navigation"
-            aria-label="<?php esc_attr_e('Primary Navigation', 'firsttheme'); ?>">
+            aria-label="<?php esc_attr_e('Primary Navigation', 'first-theme'); ?>">
             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                <span class="screen-reader-text"><?php esc_html_e('Menu', 'firsttheme'); ?></span>
+                <span class="screen-reader-text"><?php esc_html_e('Menu', 'first-theme'); ?></span>
                 <span class="menu-toggle-icon"></span>
             </button>
 
@@ -45,7 +45,7 @@
                     ?>
                 <ul id="primary-menu" class="primary-menu">
                     <li><a
-                            href="<?php echo esc_url(admin_url('nav-menus.php')); ?>"><?php esc_html_e('Add a menu', 'firsttheme'); ?></a>
+                            href="<?php echo esc_url(admin_url('nav-menus.php')); ?>"><?php esc_html_e('Add a menu', 'first-theme'); ?></a>
                     </li>
                 </ul>
                 <?php
