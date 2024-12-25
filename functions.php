@@ -4,18 +4,18 @@
  */
 
 // Define theme constants
-define('FIRSTTHEME_VERSION', wp_get_theme()->get('Version'));
-define('FIRSTTHEME_DIR', get_template_directory());
-define('FIRSTTHEME_URI', get_template_directory_uri());
+define('FIRST_THEME_VERSION', wp_get_theme()->get('Version'));
+define('FIRST_THEME_DIR', get_template_directory());
+define('FIRST_THEME_URI', get_template_directory_uri());
 
 // Include required files
-require_once FIRSTTHEME_DIR . '/inc/assets.php';
-require_once FIRSTTHEME_DIR . '/inc/template-tags.php';
+require_once FIRST_THEME_DIR . '/inc/assets.php';
+require_once FIRST_THEME_DIR . '/inc/template-tags.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
-function firsttheme_setup()
+function first_theme_setup()
 {
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
@@ -54,8 +54,8 @@ function firsttheme_setup()
 
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'firsttheme'),
-        'footer' => __('Footer Menu', 'firsttheme'),
+        'primary' => __('Primary Menu', 'first-theme'),
+        'footer' => __('Footer Menu', 'first-theme'),
     ));
 
     // Set content width
@@ -63,29 +63,29 @@ function firsttheme_setup()
         $content_width = 1200;
     }
 }
-add_action('after_setup_theme', 'firsttheme_setup');
+add_action('after_setup_theme', 'first_theme_setup');
 
 /**
  * Register widget areas
  */
-function firsttheme_widgets_init()
+function first_theme_widgets_init()
 {
     register_sidebar(array(
-        'name' => __('Footer Widgets', 'firsttheme'),
+        'name' => __('Footer Widgets', 'first-theme'),
         'id' => 'footer-widgets',
-        'description' => __('Add widgets here to appear in your footer.', 'firsttheme'),
+        'description' => __('Add widgets here to appear in your footer.', 'first-theme'),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h2 class="widget-title">',
         'after_title' => '</h2>',
     ));
 }
-add_action('widgets_init', 'firsttheme_widgets_init');
+add_action('widgets_init', 'first_theme_widgets_init');
 
 /**
  * Add security headers
  */
-function firsttheme_security_headers()
+function first_theme_security_headers()
 {
     if (!is_admin()) {
         header('X-Content-Type-Options: nosniff');
@@ -100,33 +100,33 @@ function firsttheme_security_headers()
         }
     }
 }
-add_action('send_headers', 'firsttheme_security_headers');
+add_action('send_headers', 'first_theme_security_headers');
 
 /**
  * Customize the excerpt ending
  */
-function firsttheme_excerpt_more($more)
+function first_theme_excerpt_more($more)
 {
     return '&hellip;';
 }
-add_filter('excerpt_more', 'firsttheme_excerpt_more');
+add_filter('excerpt_more', 'first_theme_excerpt_more');
 
 /**
  * Add aria-current attribute to nav menu items
  */
-function firsttheme_nav_menu_link_attributes($atts, $item, $args, $depth)
+function first_theme_nav_menu_link_attributes($atts, $item, $args, $depth)
 {
     if (in_array('current-menu-item', $item->classes)) {
         $atts['aria-current'] = 'page';
     }
     return $atts;
 }
-add_filter('nav_menu_link_attributes', 'firsttheme_nav_menu_link_attributes', 10, 4);
+add_filter('nav_menu_link_attributes', 'first_theme_nav_menu_link_attributes', 10, 4);
 
 /**
  * Ensure images have alt text
  */
-function firsttheme_ensure_image_alt($html, $post_id)
+function first_theme_ensure_image_alt($html, $post_id)
 {
     if (!str_contains($html, 'alt=')) {
         $title = get_the_title($post_id);
@@ -134,12 +134,12 @@ function firsttheme_ensure_image_alt($html, $post_id)
     }
     return $html;
 }
-add_filter('post_thumbnail_html', 'firsttheme_ensure_image_alt', 10, 2);
+add_filter('post_thumbnail_html', 'first_theme_ensure_image_alt', 10, 2);
 
 /**
  * Enhance excerpt accessibility
  */
-function firsttheme_excerpt_append($excerpt)
+function first_theme_excerpt_append($excerpt)
 {
     if (!empty($excerpt)) {
         $post_title = get_the_title();
@@ -147,12 +147,12 @@ function firsttheme_excerpt_append($excerpt)
     }
     return $excerpt;
 }
-add_filter('get_the_excerpt', 'firsttheme_excerpt_append', 20);
+add_filter('get_the_excerpt', 'first_theme_excerpt_append', 20);
 
 /**
  * Add custom body classes
  */
-function firsttheme_body_classes($classes)
+function first_theme_body_classes($classes)
 {
     // Add a class if there is a custom header image.
     if (has_header_image()) {
@@ -169,24 +169,24 @@ function firsttheme_body_classes($classes)
 
     return $classes;
 }
-add_filter('body_class', 'firsttheme_body_classes');
+add_filter('body_class', 'first_theme_body_classes');
 
 /**
  * Remove 'no-js' class from body
  */
-function firsttheme_js_detection()
+function first_theme_js_detection()
 {
     echo "<script>document.body.classList.remove('no-js');</script>\n";
 }
-add_action('wp_head', 'firsttheme_js_detection', 0);
+add_action('wp_head', 'first_theme_js_detection', 0);
 
 /**
  * Disable WordPress admin bar for all users except administrators
  */
-function firsttheme_disable_admin_bar()
+function first_theme_disable_admin_bar()
 {
     if (!current_user_can('administrator')) {
         show_admin_bar(false);
     }
 }
-add_action('after_setup_theme', 'firsttheme_disable_admin_bar');
+add_action('after_setup_theme', 'first_theme_disable_admin_bar');

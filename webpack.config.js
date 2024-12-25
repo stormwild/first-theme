@@ -8,13 +8,18 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
+      // JavaScript entries
       main: './assets/js/src/main.ts',
       admin: './assets/js/src/admin.ts',
+      // CSS entries
+      styles: './assets/css/main.css',
     },
     output: {
       filename: 'js/[name].js',
-      path: path.resolve(__dirname, 'assets/dist'),
+      path: path.resolve(__dirname, 'dist'),
       clean: true,
+      // Prevent JS file creation for CSS entries
+      assetModuleFilename: 'assets/[name][ext]',
     },
     devtool: isDevelopment ? 'source-map' : false,
     module: {
@@ -30,10 +35,31 @@ module.exports = (env, argv) => {
             },
           },
         },
-        // SASS/SCSS/CSS handling
+        // SASS/SCSS/CSS handling with PostCSS
         {
           test: /\.(sa|sc|c)ss$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2,
+                sourceMap: isDevelopment,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: isDevelopment,
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: isDevelopment,
+              },
+            },
+          ],
         },
         // Asset handling
         {
@@ -54,7 +80,16 @@ module.exports = (env, argv) => {
     },
     optimization: {
       minimizer: [
-        new CssMinimizerPlugin(),
+        new CssMinimizerPlugin({
+          minimizerOptions: {
+            preset: [
+              'default',
+              {
+                discardComments: { removeAll: true },
+              },
+            ],
+          },
+        }),
         new TerserPlugin({
           terserOptions: {
             format: {
@@ -67,11 +102,11 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: 'css/[name].css',
+        filename: '../dist/css/[name].css',
       }),
     ],
     resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
+      extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
       alias: {
         '@': path.resolve(__dirname, 'assets/js/src'),
       },
