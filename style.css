@@ -26,13 +26,36 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 html {
   height: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
+}
+
+@supports (-webkit-text-size-adjust: 100%) {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+@supports (text-size-adjust: 100%) {
+  html {
+    text-size-adjust: 100%;
+  }
+}
+
+@supports (scrollbar-color: auto) {
+  * {
+    scrollbar-color: #0073aa #f0f0f0;
+    scrollbar-width: thin;
+  }
+}
+
+@supports (scrollbar-gutter: stable) {
+  html {
+    scrollbar-gutter: stable;
+  }
 }
 
 body {
@@ -130,9 +153,25 @@ fieldset {
 
 /* Links and text selection */
 a {
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: from-font;
-  text-underline-offset: 0.2em;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+@supports (text-decoration-skip-ink: auto) {
+  a {
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+}
+
+/* Ensure all links have visible text for screen readers */
+a:empty::after {
+  content: attr(title);
+}
+
+a[title='']::after {
+  content: attr(href);
 }
 
 ::-moz-selection {
@@ -149,6 +188,25 @@ a {
 pre,
 code {
   font-variant-ligatures: none;
+}
+
+@supports (speak: none) {
+  .screen-reader-text {
+    speak: none;
+  }
+}
+
+@supports (text-decoration-thickness: from-font) {
+  a {
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+}
+
+@supports (font-variant-numeric: tabular-nums) {
+  .numbers {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
 /* Media elements */
@@ -211,6 +269,8 @@ p {
 a {
   color: #0073aa;
   text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 a:hover {
@@ -231,6 +291,25 @@ a:hover {
   padding: 2rem 0;
   background: #fff;
   border-bottom: 1px solid #eee;
+}
+
+/* Accessibility improvements for interactive elements */
+[role='button'],
+[role='tab'],
+[role='menuitem'] {
+  cursor: pointer;
+}
+
+/* Hide elements visually but keep them available for screen readers */
+.screen-reader-text:not(:focus) {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }
 
 .site-title {
@@ -282,6 +361,8 @@ a:hover {
   color: #0073aa;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 .page-numbers:hover,
@@ -308,4 +389,23 @@ a:hover {
 .page-numbers:focus-visible {
   outline: 2px solid #0073aa;
   outline-offset: 2px;
+}
+
+/* No Posts Section */
+.no-posts {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.no-posts h2 {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.no-posts p {
+  color: #6c757d;
+  margin-bottom: 0;
 }

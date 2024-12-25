@@ -1,0 +1,14 @@
+/* Additional custom styles */
+/* Add your custom CSS rules here */
+
+.container .post {
+  margin-bottom: 2rem;
+}
+
+.container .post:last-child {
+  margin-bottom: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
