@@ -1,0 +1,35 @@
+/* Header */
+.site-header {
+  padding-block: 1rem;
+  background: var(--theme-bg);
+  border-block-end: 1px solid var(--theme-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.site-title a {
+  color: var(--theme-text);
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  color: var(--theme-primary);
+}
+
+.site-description {
+  margin: 0.5rem 0 0;
+  font-size: 0.875rem;
+  color: #666;
+}

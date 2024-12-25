@@ -3,16 +3,16 @@
  * Custom template tags for this theme
  */
 
-if (!function_exists('firsttheme_post_meta')):
+if (!function_exists('first_theme_post_meta')):
     /**
      * Prints HTML with meta information for the current post.
      */
-    function firsttheme_post_meta()
+    function first_theme_post_meta()
     {
         // Get the author name; wrap it in a link.
         $byline = sprintf(
             /* translators: %s: post author */
-            __('by %s', 'firsttheme'),
+            __('by %s', 'first-theme'),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">'
             . esc_html(get_the_author())
             . '</a></span>'
@@ -37,7 +37,7 @@ if (!function_exists('firsttheme_post_meta')):
         // Wrap the time string in a link, and preface it with 'Posted on'.
         $posted_on = sprintf(
             /* translators: %s: post date */
-            __('Posted on %s', 'firsttheme'),
+            __('Posted on %s', 'first-theme'),
             '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
@@ -53,12 +53,12 @@ if (!function_exists('firsttheme_post_meta')):
                         '%s Comments',
                         $comments_number,
                         'Comments title',
-                        'firsttheme'
+                        'first-theme'
                     ),
                     number_format_i18n($comments_number)
                 );
             } else {
-                $comments = __('Leave a comment', 'firsttheme');
+                $comments = __('Leave a comment', 'first-theme');
             }
             $comments = '<span class="comments-link"><a href="' . esc_url(get_comments_link()) . '">' . $comments . '</a></span>';
         }
@@ -69,7 +69,7 @@ if (!function_exists('firsttheme_post_meta')):
             /* translators: 1: posted in label, 2: list of categories */
             $categories_list = sprintf(
                 '<span class="cat-links"><span class="screen-reader-text">%1$s</span>%2$s</span>',
-                esc_html__('Posted in', 'firsttheme'),
+                esc_html__('Posted in', 'first-theme'),
                 $categories_list
             );
         }
@@ -89,11 +89,11 @@ if (!function_exists('firsttheme_post_meta')):
     }
 endif;
 
-if (!function_exists('firsttheme_post_thumbnail')):
+if (!function_exists('first_theme_post_thumbnail')):
     /**
      * Displays an optional post thumbnail.
      */
-    function firsttheme_post_thumbnail()
+    function first_theme_post_thumbnail()
     {
         if (!post_password_required() && !is_attachment() && has_post_thumbnail()) {
             ?>
@@ -123,11 +123,11 @@ if (!function_exists('firsttheme_post_thumbnail')):
     }
 endif;
 
-if (!function_exists('firsttheme_entry_footer')):
+if (!function_exists('first_theme_entry_footer')):
     /**
      * Prints HTML with meta information for tags and edit link.
      */
-    function firsttheme_entry_footer()
+    function first_theme_entry_footer()
     {
         // Hide tag text for pages.
         if ('post' === get_post_type()) {
@@ -135,7 +135,7 @@ if (!function_exists('firsttheme_entry_footer')):
             if ($tags_list) {
                 printf(
                     '<div class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</div>',
-                    esc_html__('Tags:', 'firsttheme'),
+                    esc_html__('Tags:', 'first-theme'),
                     $tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 );
             }
@@ -144,7 +144,7 @@ if (!function_exists('firsttheme_entry_footer')):
         edit_post_link(
             sprintf(
                 /* translators: %s: Post title. */
-                __('Edit<span class="screen-reader-text"> "%s"</span>', 'firsttheme'),
+                __('Edit<span class="screen-reader-text"> "%s"</span>', 'first-theme'),
                 get_the_title()
             ),
             '<div class="edit-link">',

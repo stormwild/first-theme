@@ -17,11 +17,11 @@ get_header();
 
         // Previous/next page navigation
         the_posts_pagination(array(
-            'prev_text' => __('Previous page', 'firsttheme'),
-            'next_text' => __('Next page', 'firsttheme'),
-            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'firsttheme') . ' </span>',
+            'prev_text' => __('Previous page', 'first-theme'),
+            'next_text' => __('Next page', 'first-theme'),
+            'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('Page', 'first-theme') . ' </span>',
             'mid_size' => 2,
-            'screen_reader_text' => __('Posts navigation', 'firsttheme'),
+            'screen_reader_text' => __('Posts navigation', 'first-theme'),
         ));
 
     else:
@@ -29,20 +29,20 @@ get_header();
         ?>
         <section class="no-results not-found">
             <header class="page-header">
-                <h1 class="page-title"><?php _e('Nothing Found', 'firsttheme'); ?></h1>
+                <h1 class="page-title"><?php _e('Nothing Found', 'first-theme'); ?></h1>
             </header>
 
             <div class="page-content">
                 <?php
                 if (is_search()):
                     ?>
-                    <p><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'firsttheme'); ?>
+                    <p><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'first-theme'); ?>
                     </p>
                     <?php
                     get_search_form();
                 else:
                     ?>
-                    <p><?php _e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'firsttheme'); ?>
+                    <p><?php _e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'first-theme'); ?>
                     </p>
                     <?php
                     get_search_form();

@@ -10,7 +10,7 @@
             <h1 class="entry-title">
                 <?php the_title(); ?>
             </h1>
-            <?php firsttheme_post_meta(); ?>
+            <?php first_theme_post_meta(); ?>
         </header>
     <?php else: ?>
         <header class="entry-header">
@@ -19,7 +19,7 @@
                     <?php the_title(); ?>
                 </a>
             </h2>
-            <?php firsttheme_post_meta(); ?>
+            <?php first_theme_post_meta(); ?>
         </header>
     <?php endif; ?>
 
@@ -46,13 +46,13 @@
             the_content(
                 sprintf(
                     /* translators: %s: Post title. */
-                    __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'firsttheme'),
+                    __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'first-theme'),
                     get_the_title()
                 )
             );
 
             wp_link_pages(array(
-                'before' => '<div class="page-links">' . __('Pages:', 'firsttheme'),
+                'before' => '<div class="page-links">' . __('Pages:', 'first-theme'),
                 'after' => '</div>',
             ));
         } else {
@@ -60,9 +60,9 @@
             printf(
                 '<p class="more-link-container"><a href="%1$s" class="more-link">%2$s<span class="screen-reader-text"> %3$s</span></a></p>',
                 esc_url(get_permalink()),
-                __('Continue reading', 'firsttheme'),
+                __('Continue reading', 'first-theme'),
                 /* translators: %s: Post title. */
-                sprintf(__('"%s"', 'firsttheme'), get_the_title())
+                sprintf(__('"%s"', 'first-theme'), get_the_title())
             );
         }
         ?>
@@ -77,7 +77,7 @@
                 printf(
                     /* translators: %s: List of categories. */
                     '<div class="cat-links">%s %s</div>',
-                    esc_html__('Posted in:', 'firsttheme'),
+                    esc_html__('Posted in:', 'first-theme'),
                     $categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 );
             }
@@ -87,7 +87,7 @@
                 printf(
                     /* translators: %s: List of tags. */
                     '<div class="tags-links">%s %s</div>',
-                    esc_html__('Tagged:', 'firsttheme'),
+                    esc_html__('Tagged:', 'first-theme'),
                     $tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 );
             }
@@ -97,7 +97,7 @@
         edit_post_link(
             sprintf(
                 /* translators: %s: Post title. */
-                __('Edit<span class="screen-reader-text"> "%s"</span>', 'firsttheme'),
+                __('Edit<span class="screen-reader-text"> "%s"</span>', 'first-theme'),
                 get_the_title()
             ),
             '<div class="edit-link">',
