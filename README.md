@@ -43,17 +43,17 @@ first-theme/
 1. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 2. Development workflow:
 
 ```bash
 # Start development with watch mode
-npm run dev
+pnpm run dev
 
 # Build for production
-npm run build
+pnpm run build
 ```
 
 ## Asset Management
