@@ -6,6 +6,8 @@
 /* Components */
 @import './components/_forms.css';
 @import './components/_navigation.css';
+@import './components/_comments.css';
+@import './components/_scroll-top.css';
 
 /* Layout */
 @import './layout/_grid.css';

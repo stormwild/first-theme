@@ -176,7 +176,7 @@ add_filter('body_class', 'first_theme_body_classes');
  */
 function first_theme_js_detection()
 {
-    echo "<script>document.body.classList.remove('no-js');</script>\n";
+    echo "<script>if (document.body) { document.body.classList.remove('no-js'); }</script>\n";
 }
 add_action('wp_head', 'first_theme_js_detection', 0);
 
