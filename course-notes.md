@@ -68,3 +68,40 @@
 - `get_header()` - displays the header
 - `get_footer()` - displays the footer
 - `get_sidebar()` - displays the sidebar
+
+#### Template Hierarchy
+
+- `index.php` - the default template file
+- `page.php` - the page template file
+- `single.php` - the single post template file
+- `single-{post-type}.php` - the single post template file for a specific post type
+- `archive.php` - the archive template file
+- `archive-{post-type}.php` - the archive template file for a specific post type
+- `search.php` - the search results template file
+- `404.php` - the 404 template file
+- `header.php` - the header template file
+- `footer.php` - the footer template file
+- `sidebar.php` - the sidebar template file
+- `sidebar-{post-type}.php` - the sidebar template file for a specific post type
+- `content.php` - the content template file
+- `content-{post-type}.php` - the content template file for a specific post type
+- `template-parts/content.php` - the content template part file
+- `template-parts/content-{post-type}.php` - the content template part file for a specific post type
+- `template-parts/sidebar.php` - the sidebar template part file
+- `template-parts/sidebar-{post-type}.php` - the sidebar template part file for a specific post type
+- `template-parts/header.php` - the header template part file
+- `template-parts/footer.php` - the footer template part file
+- `template-parts/navigation.php` - the navigation template part file
+- `template-parts/comments.php` - the comments template part file
+
+#### Page Templates
+
+- `page.php` - the page template file
+- `page-{slug}.php` - the page template file for a specific slug
+- `page-{id}.php` - the page template file for a specific ID
+- `page-{post-type}.php` - the page template file for a specific post type
+- `page-{template}.php` - the page template file for a specific template
+
+### Theme Development
+
+- `functions.php` - the functions file

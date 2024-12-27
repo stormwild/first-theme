@@ -1,22 +1,31 @@
+<?php
+/**
+ * The header for our theme
+ */
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (is_singular() && pings_open()): ?>
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php endif; ?>
     <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    
-    <a class="skip-link screen-reader-text" href="#main-content">
-        Skip to main content
-    </a>
 
-    <header class="site-header" role="banner" aria-label="Site header">
-        <div class="container">
-            <h1 class="site-title"><?php bloginfo('name'); ?></h1>
-            <p class="site-description"><?php bloginfo('description'); ?></p>
-        </div>
-    </header>
+    <div id="page" class="site">
+        <a class="skip-link screen-reader-text" href="#primary">
+            <?php esc_html_e('Skip to content', 'first-theme'); ?>
+        </a>
+
+        <?php get_template_part('template-parts/header/site-header'); ?>
+
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+                    <div class="container">

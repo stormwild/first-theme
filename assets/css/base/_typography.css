@@ -1,0 +1,111 @@
+/* Modern text features - applied when supported */
+@supports (text-wrap: pretty) {
+  body {
+    text-wrap: pretty;
+  }
+
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+  }
+}
+
+@supports (text-wrap: balance) {
+  pre,
+  code {
+    text-wrap: balance;
+  }
+}
+
+@supports (hanging-punctuation: first) {
+  p,
+  li,
+  blockquote {
+    hanging-punctuation: first;
+  }
+}
+
+@supports (line-height-step: 1.5) {
+  p,
+  li,
+  blockquote {
+    line-height-step: 1.5;
+  }
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-block-end: 1.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-block-end: 1.1rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  margin-block-end: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-block-end: 1rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin-block-end: 0.9rem;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-block-end: 0.8rem;
+}
+
+p {
+  margin-block-end: 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--theme-primary);
+  text-decoration: none;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: var(--theme-primary-hover);
+  text-decoration: underline;
+}
+
+@supports (text-decoration-skip-ink: auto) {
+  a {
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: from-font;
+    text-underline-offset: 0.2em;
+  }
+}
+
+/* Ensure all links have visible text for screen readers */
+a:empty::after {
+  content: attr(title);
+}
+
+a[title='']::after {
+  content: attr(href);
+}

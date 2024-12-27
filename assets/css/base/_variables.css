@@ -1,0 +1,9 @@
+:root {
+  --theme-primary: #0073aa;
+  --theme-primary-hover: #00a0d2;
+  --theme-text: #333;
+  --theme-bg: #fff;
+  --theme-border: #dee2e6;
+  --theme-menu-mobile-bg: #f8f9fa;
+  --theme-menu-toggle-size: 24px;
+}
