@@ -3,6 +3,9 @@
  * The footer for our theme
  */
 ?>
+</div><!-- .container -->
+</main><!-- #main -->
+
 </div><!-- #primary -->
 </div><!-- #content -->
 

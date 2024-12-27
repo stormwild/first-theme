@@ -12,6 +12,7 @@
 /* Layout */
 @import './layout/_grid.css';
 @import './layout/_header.css';
+@import './layout/_content.css';
 @import './layout/_footer.css';
 
 /* Utilities */
